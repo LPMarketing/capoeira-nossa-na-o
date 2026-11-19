@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --color-canvas-light: #f5f7fa;
+  --color-brand-navy: #111654;
+  --color-brand-navy-deep: #0c1140;
+  --color-brand-green: #13852b;
+  --color-brand-green-hover: #0f7224;
+  --color-brand-yellow: #fbc707;
+}
+
+@layer base {
+  html {
+    background-color: #f5f7fa;
+    color: #111654;
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Short, gentle one-time entrance animation for content after intro */
+@keyframes bio-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-bio-enter {
+  animation: bio-enter 440ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.enter-delay-1 {
+  animation-delay: 80ms;
+}
+
+.enter-delay-2 {
+  animation-delay: 140ms;
+}
+
+.enter-delay-3 {
+  animation-delay: 200ms;
+}
+
+.enter-delay-4 {
+  animation-delay: 260ms;
+}
+
+.enter-delay-5 {
+  animation-delay: 320ms;
+}
+
+/* Continuous 2.5s rhythmic jump + gentle pulse reserved exclusively for the location berimbau marker */
+@keyframes berimbau-hop-pulse {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  18% {
+    transform: translateY(1.5px) scale(1.04, 0.96);
+  }
+  42% {
+    transform: translateY(-11px) scale(1.06);
+  }
+  62% {
+    transform: translateY(0.5px) scale(1.02, 0.98);
+  }
+  74% {
+    transform: translateY(-4px) scale(1.03);
+  }
+  88%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes berimbau-ground-shadow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.48;
+  }
+  18% {
+    transform: scale(1.08);
+    opacity: 0.56;
+  }
+  42% {
+    transform: scale(0.62);
+    opacity: 0.24;
+  }
+  62% {
+    transform: scale(1.02);
+    opacity: 0.5;
+  }
+  74% {
+    transform: scale(0.82);
+    opacity: 0.34;
+  }
+}
+
+@keyframes location-ring-pulse {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.78;
+  }
+  75% {
+    transform: scale(2.25);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.25);
+    opacity: 0;
+  }
+}
+
+@keyframes berimbau-symbol-dance {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  16% {
+    transform: rotate(-8deg) scale(0.95);
+  }
+  38% {
+    transform: rotate(9deg) scale(1.13);
+  }
+  56% {
+    transform: rotate(-6deg) scale(1.04);
+  }
+  72% {
+    transform: rotate(5deg) scale(1.1);
+  }
+  86% {
+    transform: rotate(-2deg) scale(1.02);
+  }
+}
+
+.animate-berimbau-hop {
+  animation: berimbau-hop-pulse 2.5s cubic-bezier(0.34, 1.12, 0.64, 1) infinite;
+  will-change: transform;
+}
+
+.animate-berimbau-symbol {
+  animation: berimbau-symbol-dance 2.5s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+  transform-origin: center 62%;
+  will-change: transform;
+}
+
+.animate-berimbau-shadow {
+  animation: berimbau-ground-shadow 2.5s cubic-bezier(0.34, 1.12, 0.64, 1) infinite;
+  will-change: transform, opacity;
+}
+
+.animate-location-ring {
+  animation: location-ring-pulse 2.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bio-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .animate-berimbau-hop {
+    animation: none;
+    transform: none;
+  }
+
+  .animate-berimbau-symbol {
+    animation: none;
+    transform: none;
+  }
+
+  .animate-berimbau-shadow {
+    animation: none;
+    transform: scale(1);
+    opacity: 0.42;
+  }
+
+  .animate-location-ring {
+    animation: none;
+    opacity: 0.32;
+    transform: scale(1.25);
+  }
+}
