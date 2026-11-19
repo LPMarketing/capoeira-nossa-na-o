@@ -192,6 +192,49 @@ export function WebsiteGlobeCreativeIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 /**
+ * Creative Student Registration medallion ("Cadastro de aluno"):
+ * Warm golden-yellow squircle with crisp navy student badge silhouette
+ * and an emerald-green verified corda check accent.
+ */
+export function StudentRegistrationCreativeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" {...props}>
+      <rect
+        x="1.5"
+        y="1.5"
+        width="37"
+        height="37"
+        rx="12"
+        fill="#FFF7D6"
+        stroke="#FBC707"
+        strokeOpacity="0.65"
+        strokeWidth="1.3"
+      />
+      {/* Mini ID / enrollment card */}
+      <rect x="8.5" y="9.5" width="21" height="22" rx="5.5" fill="#111654" />
+      {/* Student head */}
+      <circle cx="19" cy="16.5" r="3.2" fill="#FBC707" />
+      {/* Student shoulders */}
+      <path
+        d="M13.2 26.2C13.8 23.2 16 21.6 19 21.6C22 21.6 24.2 23.2 24.8 26.2"
+        stroke="#FFFFFF"
+        strokeWidth="2.3"
+        strokeLinecap="round"
+      />
+      {/* Stylized Brazilian green capoeira corda knot / verified check badge */}
+      <circle cx="29.2" cy="27.2" r="5.6" fill="#13852B" stroke="#FFF7D6" strokeWidth="1.6" />
+      <path
+        d="M26.8 27.2L28.4 28.8L31.7 25.5"
+        stroke="#FFFFFF"
+        strokeWidth="1.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+/**
  * Cute illustrated route/compass arrow badge for the Google Maps card footer.
  */
 export function MapRouteIcon(props: SVGProps<SVGSVGElement>) {

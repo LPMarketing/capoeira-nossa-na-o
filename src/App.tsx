@@ -5,6 +5,7 @@ import {
   ArrowUpRightIcon,
   BerimbauIcon,
   InstagramMiniBadge,
+  StudentRegistrationCreativeIcon,
   WebsiteGlobeCreativeIcon,
   WhatsAppCreativeIcon,
 } from './components/Icons';
@@ -16,6 +17,7 @@ import {
   CLICAE_PROMO,
   INSTAGRAM_LINK,
   MASTERS_SECTION,
+  STUDENT_REGISTRATION_LINK,
   TOP_LINKS,
 } from './data/links';
 
@@ -172,43 +174,68 @@ export default function App() {
                 </div>
               </section>
 
-              {/* 2. Split-Panel Editorial Website Showcase (breaks Linktree bar look) */}
+              {/* 2. Asymmetric 2-Column Editorial Bento: Cadastro de aluno + Acesse nosso site */}
               <div
-                className={`${showIntro ? 'opacity-0' : 'animate-bio-enter enter-delay-2'} mt-3.5`}
+                className={`${showIntro ? 'opacity-0' : 'animate-bio-enter enter-delay-2'} mt-3.5 grid grid-cols-2 gap-3`}
               >
+                {/* Cadastro de aluno (para quem já treina) — crisp white card with golden accent */}
+                <a
+                  href={STUDENT_REGISTRATION_LINK.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex min-h-[126px] w-full flex-col justify-between rounded-[22px] border border-[#111654]/10 bg-white p-3.5 text-left shadow-[0_6px_20px_rgba(17,22,84,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#FBC707]/80 hover:shadow-[0_10px_26px_rgba(17,22,84,0.1)] active:translate-y-0 active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111654] sm:p-4"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <StudentRegistrationCreativeIcon className="h-10 w-10 shrink-0 transition-transform duration-200 group-hover:-rotate-6 group-hover:scale-105" />
+                    <span
+                      aria-hidden="true"
+                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#111654]/[0.06] text-[#111654] transition-all duration-150 group-hover:bg-[#111654] group-hover:text-white"
+                    >
+                      <ArrowUpRightIcon className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
+                  </div>
+
+                  <div className="mt-3 min-w-0">
+                    <span className="block font-display text-[0.90625rem] font-bold leading-tight text-[#111654] sm:text-[0.96875rem]">
+                      {STUDENT_REGISTRATION_LINK.label}
+                    </span>
+                    <span className="mt-1 block text-[0.75rem] font-medium leading-snug text-[#525D82]">
+                      {STUDENT_REGISTRATION_LINK.subtitle}
+                    </span>
+                  </div>
+                </a>
+
+                {/* Acesse nosso site — contrasting deep royal navy editorial tile */}
                 <a
                   href={websiteLink.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex min-h-[72px] w-full items-stretch overflow-hidden rounded-[22px] border border-[#111654]/10 bg-white shadow-[0_6px_20px_rgba(17,22,84,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#111654]/22 hover:shadow-[0_10px_26px_rgba(17,22,84,0.1)] active:translate-y-0 active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#111654]"
+                  className="group relative flex min-h-[126px] w-full flex-col justify-between overflow-hidden rounded-[22px] border border-[#111654] bg-[#111654] p-3.5 text-left text-white shadow-[0_8px_22px_rgba(17,22,84,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#161D69] hover:shadow-[0_12px_28px_rgba(17,22,84,0.24)] active:translate-y-0 active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FBC707] sm:p-4"
                 >
-                  {/* Deep royal navy visual accent panel on the left */}
+                  {/* Subtle roda curve accent inside the navy tile */}
                   <span
                     aria-hidden="true"
-                    className="relative flex w-[68px] shrink-0 items-center justify-center overflow-hidden bg-[#111654] sm:w-[74px]"
-                  >
-                    <span className="pointer-events-none absolute -top-5 -right-5 h-14 w-14 rounded-full bg-[#FBC707]/20" />
-                    <WebsiteGlobeCreativeIcon className="relative h-10 w-10 transition-transform duration-200 group-hover:-rotate-6 group-hover:scale-105" />
-                  </span>
+                    className="pointer-events-none absolute -right-7 -bottom-7 h-24 w-24 rounded-full border-[6px] border-[#FBC707]/15"
+                  />
 
-                  {/* Clean editorial copy panel */}
-                  <span className="flex min-w-0 flex-1 items-center justify-between gap-2 px-4 py-3 text-left">
-                    <span className="min-w-0">
-                      <span className="block font-display text-[0.96875rem] font-bold leading-snug text-[#111654]">
-                        {websiteLink.label}
-                      </span>
-                      <span className="mt-0.5 block truncate text-[0.78125rem] font-medium text-[#525D82]">
-                        capoeiranossanacao.com.br
-                      </span>
-                    </span>
-
+                  <div className="relative flex items-start justify-between gap-2">
+                    <WebsiteGlobeCreativeIcon className="h-10 w-10 shrink-0 transition-transform duration-200 group-hover:rotate-6 group-hover:scale-105" />
                     <span
                       aria-hidden="true"
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#111654]/[0.06] text-[#111654] transition-all duration-150 group-hover:bg-[#111654] group-hover:text-white"
+                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/12 text-[#FBC707] transition-all duration-150 group-hover:bg-[#FBC707] group-hover:text-[#111654]"
                     >
-                      <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <ArrowUpRightIcon className="h-3.5 w-3.5 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
-                  </span>
+                  </div>
+
+                  <div className="relative mt-3 min-w-0">
+                    <span className="block font-display text-[0.90625rem] font-bold leading-tight text-white sm:text-[0.96875rem]">
+                      {websiteLink.label}
+                    </span>
+                    <span className="mt-1 block truncate text-[0.75rem] font-medium leading-snug text-white/75">
+                      Site oficial
+                    </span>
+                  </div>
                 </a>
               </div>
 

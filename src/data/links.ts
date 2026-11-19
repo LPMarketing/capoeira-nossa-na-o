@@ -1,3 +1,5 @@
+import { resolvePublicAsset } from '../utils/assets';
+
 export interface BioLink {
   id: 'whatsapp' | 'instagram' | 'website';
   label: string;
@@ -15,7 +17,7 @@ export interface MasterProfile {
 export const BRAND = {
   name: 'Capoeira Nossa Nação',
   subtitle: 'Venha fazer parte da nossa roda.',
-  logoSrc: '/assets/aistudio/logo_cnn_sem_fundo_344ceb0e.png',
+  logoSrc: resolvePublicAsset('assets/aistudio/logo_cnn_sem_fundo_344ceb0e.png'),
   logoAlt: 'Logo oficial da academia Capoeira Nossa Nação — Mestre Apache',
 } as const;
 
@@ -32,6 +34,13 @@ export const TOP_LINKS: BioLink[] = [
     href: 'https://www.capoeiranossanacao.com.br',
   },
 ];
+
+export const STUDENT_REGISTRATION_LINK = {
+  id: 'student-registration' as const,
+  label: 'Cadastro de aluno',
+  subtitle: 'Para quem já treina',
+  href: 'https://capoeira-nossa-nacao.vercel.app/',
+};
 
 export const INSTAGRAM_LINK = {
   id: 'instagram' as const,
@@ -70,7 +79,9 @@ export const CLICAE_PROMO = {
   cta: 'Quero o meu',
   credit: 'Produzido por Clicaê Bio',
   href: 'https://www.instagram.com/clicaebio/',
-  logoSrc: '/assets/aistudio/WhatsApp_Image_2026-11-17_at_22.41.29_be5d0219.jpeg',
+  logoSrc: resolvePublicAsset(
+    'assets/aistudio/WhatsApp_Image_2026-11-17_at_22.41.29_be5d0219.jpeg'
+  ),
   logoAlt: 'Logo oficial da Clicaê Bio',
 } as const;
 
